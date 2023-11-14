@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do List Vanilla JS</title>
+    <title>Todo List Vanilla JS</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
@@ -16,7 +16,7 @@
   </head>
   <body>
     <main>
-      <h1 class="text-2xl font-bold mb-3 select-none">To-Do List</h1>
+      <h1 class="text-3xl font-bold mb-3 select-none">Todo</h1>
 
       <!-- NEW TASK -->
       <section>
@@ -65,8 +65,11 @@
         const taskText = taskInput.value.trim()
 
         if (taskText !== '') {
+          const randomColor = getRandomColor()
           const listItem = document.createElement('li')
-          listItem.textContent = taskText
+          listItem.innerHTML = `
+            <span class="${randomColor}">${taskText}</span>
+          `
 
           const taskList = document.getElementById('taskList')
           taskList.appendChild(listItem)
@@ -83,6 +86,21 @@
           addTask()
         }
       })
+
+      // Get random Tailwind color for task
+      function getRandomColor() {
+        const colors = [
+          'text-amber-400',
+          'text-lime-400',
+          'text-emerald-400',
+          'text-teal-400',
+          'text-sky-400',
+          'text-purple-400',
+          'text-fuchsia-400',
+        ]
+
+        return colors[Math.floor(Math.random() * colors.length)]
+      }
 
       // Save tasks to local storage
       function saveTasks() {
