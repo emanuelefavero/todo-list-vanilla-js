@@ -4,63 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List Vanilla JS</title>
+
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>To-Do List</h1>
 
     <!-- NEW TASK -->
-    <div>
+    <section>
       <input type="text" id="taskInput" placeholder="Add a new task" />
       <button onclick="addTask()">Add Task</button>
-    </div>
+    </section>
 
-    <!-- DELETE ALL TASKS -->
-    <button onclick="deleteAllTasks()">Delete All Tasks</button>
+    <section>
+      <!-- TASK LIST -->
+      <ul id="taskList">
+        <!-- Tasks will be added here dynamically -->
+      </ul>
 
-    <!-- TASK LIST -->
-    <ul id="taskList">
-      <!-- Tasks will be added here dynamically -->
-    </ul>
+      <!-- DELETE ALL TASKS -->
+      <button onclick="deleteAllTasks()">Delete All Tasks</button>
+    </section>
 
     <script>
       // Load tasks from local storage when the page loads
       document.addEventListener('DOMContentLoaded', loadTasks)
 
+      // Add new task when the user clicks the add task button
       function addTask() {
-        // Get the input value
         const taskInput = document.getElementById('taskInput')
-        const taskText = taskInput.value
+        const taskText = taskInput.value.trim()
 
-        // Check if the input is not empty
-        if (taskText.trim() !== '') {
-          // Create a new list item
+        if (taskText !== '') {
           const listItem = document.createElement('li')
-          listItem.innerHTML = taskText
+          listItem.textContent = taskText
 
-          // Add the list item to the list
           const taskList = document.getElementById('taskList')
           taskList.appendChild(listItem)
 
-          // Save tasks to local storage
           saveTasks()
 
-          // Clear the input field
           taskInput.value = ''
         }
       }
 
-      // Add new task when user presses enter while typing in the input field
+      // Add new task when the user presses enter while typing in the input field
       document.getElementById('taskInput').addEventListener('keyup', (e) => {
-        if (e.keyCode === 13) {
+        if (e.key === 'Enter') {
           addTask()
         }
       })
 
+      // Save tasks to local storage
       function saveTasks() {
         const taskList = document.getElementById('taskList').innerHTML
         localStorage.setItem('tasks', taskList)
       }
 
+      // Load tasks from local storage
       function loadTasks() {
         const tasks = localStorage.getItem('tasks')
         if (tasks) {
@@ -68,9 +69,10 @@
         }
       }
 
+      // Delete all tasks
       function deleteAllTasks() {
-        // Clear the task list and remove data from local storage
-        document.getElementById('taskList').innerHTML = ''
+        const taskList = document.getElementById('taskList')
+        taskList.innerHTML = ''
         localStorage.removeItem('tasks')
       }
     </script>
