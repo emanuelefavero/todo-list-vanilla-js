@@ -7,5 +7,38 @@
   </head>
   <body>
     <h1>To-Do List</h1>
+
+    <!-- NEW TASK -->
+    <div>
+      <input type="text" id="taskInput" placeholder="Add a new task" />
+      <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <!-- TASK LIST -->
+    <ul id="taskList">
+      <!-- Tasks will be added here dynamically -->
+    </ul>
+
+    <script>
+      function addTask() {
+        // Get the input value
+        const taskInput = document.getElementById('taskInput')
+        const taskText = taskInput.value
+
+        // Check if the input is not empty
+        if (taskText.trim() !== '') {
+          // Create a new list item
+          const listItem = document.createElement('li')
+          listItem.innerHTML = taskText
+
+          // Add the list item to the list
+          const taskList = document.getElementById('taskList')
+          taskList.appendChild(listItem)
+
+          // Clear the input field
+          taskInput.value = ''
+        }
+      }
+    </script>
   </body>
 </html>
