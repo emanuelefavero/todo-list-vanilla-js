@@ -15,27 +15,45 @@
     ></script>
   </head>
   <body>
-    <h1>To-Do List</h1>
+    <main>
+      <h1 class="text-2xl font-bold mb-3 select-none">To-Do List</h1>
 
-    <!-- NEW TASK -->
-    <section>
-      <input type="text" id="taskInput" placeholder="Add a new task" />
-      <button onclick="addTask()">Add Task</button>
-    </section>
+      <!-- NEW TASK -->
+      <section>
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Add a new task"
+          class="text-indigo-800 bg-indigo-50 px-2 py-1 rounded-md"
+        />
+        <button
+          onclick="addTask()"
+          class="bg-indigo-600 px-2 py-1 hover:bg-indigo-500 active:bg-indigo-700 text-white rounded-md"
+        >
+          Add Task
+        </button>
+      </section>
 
-    <section>
-      <!-- TASK LIST -->
-      <ul id="taskList">
-        <!-- Tasks will be added here dynamically -->
-      </ul>
+      <!-- TAILWIND CDN -->
+      <script src="https://cdn.tailwindcss.com"></script>
 
-      <!-- DELETE ALL TASKS -->
-      <button onclick="deleteAllTasks()">
-        <i class="fas fa-trash-alt"></i>
-        <span>All</span>
-        <!-- <i class="fa-solid fa-trash-alt"></i> -->
-      </button>
-    </section>
+      <section>
+        <!-- TASK LIST -->
+        <ul id="taskList" class="text-emerald-400 text-lg">
+          <!-- Tasks will be added here dynamically -->
+        </ul>
+
+        <!-- DELETE ALL TASKS -->
+        <button
+          onclick="deleteAllTasks()"
+          class="bg-indigo-600 px-2 py-1 hover:bg-indigo-500 active:bg-indigo-700 text-white rounded-md"
+        >
+          <i class="fas fa-trash-alt"></i>
+          <span>All</span>
+          <!-- <i class="fa-solid fa-trash-alt"></i> -->
+        </button>
+      </section>
+    </main>
 
     <script>
       // Load tasks from local storage when the page loads

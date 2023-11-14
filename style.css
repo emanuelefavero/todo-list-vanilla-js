@@ -1,7 +1,8 @@
 :root {
+  --color-bg: #0c0b1d;
   --color-primary: #4e4e4e;
   --color-primary-hover: #727272;
-  --color-outline: rgb(147, 104, 240)
+  --color-outline: rgb(147, 104, 240);
 }
 
 * {
@@ -10,6 +11,10 @@
   padding: 0;
   margin-bottom: 0.1rem;
   font-size: inherit;
+}
+
+input::placeholder {
+  color: #818cf8;
 }
 
 :focus-visible {
@@ -21,10 +26,18 @@ body {
   font-family: -apple-system, 'Helvetica Neue', Helvetica, BlinkMacSystemFont,
     'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
   font-size: 1rem;
-  background: #000;
+  background: var(--color-bg);
   color: #fff;
 
   padding: 1rem;
+  padding-top: 6rem;
+
+  /* min-height: 100vh; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
@@ -40,31 +53,4 @@ ul,
 li {
   margin-bottom: 0.5rem;
   list-style: none;
-}
-
-input[type='text'] {
-  background-color: #fff;
-  color: #000;
-  border: none;
-  padding: 0.1rem 0.5rem;
-  border-radius: 0.2rem;
-  transition: background-color 0.15s ease-in;
-
-  &:focus {
-    background-color: #eee;
-  }
-}
-
-button {
-  background-color: var(--color-primary);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 0.1rem 0.5rem;
-  border-radius: 0.2rem;
-  transition: background-color 0.15s ease-in;
-
-  &:hover {
-    background-color: var(--color-primary-hover);
-  }
 }
