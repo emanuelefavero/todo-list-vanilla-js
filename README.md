@@ -9,3 +9,7 @@ Clone the repository and open the index.html file in your browser.
 ```bash
 git clone
 ```
+
+## License
+
+- [MIT](LICENSE.md)
