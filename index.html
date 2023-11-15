@@ -68,7 +68,8 @@
           const randomColor = getRandomColor()
           const listItem = document.createElement('li')
           listItem.innerHTML = `
-            <span class="${randomColor}">${taskText}</span>
+            <span class="${randomColor} mr-1">${taskText}</span>
+            <button class="text-rose-500 hover:text-rose-400 active:scale-90" onclick="deleteTask(this.parentNode)"><i class="fa-solid fa-x align-[-1px] scale-75"></i></button>
           `
 
           const taskList = document.getElementById('taskList')
@@ -86,6 +87,14 @@
           addTask()
         }
       })
+
+      // Delete task
+      function deleteTask(taskElement) {
+        const taskList = document.getElementById('taskList')
+        taskList.removeChild(taskElement)
+
+        saveTasks()
+      }
 
       // Get random Tailwind color for task
       function getRandomColor() {
