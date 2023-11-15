@@ -54,3 +54,11 @@ li {
   margin-bottom: 0.5rem;
   list-style: none;
 }
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.gray-text {
+  color: #64748b !important;
+}
