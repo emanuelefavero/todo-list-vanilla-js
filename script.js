@@ -1,5 +1,3 @@
-// TODO: commit "move script to separate file"
-
 // Load tasks from local storage when the page loads
 document.addEventListener('DOMContentLoaded', loadTasks)
 
